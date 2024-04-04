@@ -1,49 +1,33 @@
-// traits
-[
-  // set
-  'entrance',
-  'administration',
-  'enclosure',
-
-  // entity human
-  'human',
-  'mechanic',
-  'administrator',
-  'hunter',
-  'rifle',
-
-  // entity dinosaur
-  'dinosaur',
-].map(e => eval(`const ${e} = 'e'`))
+const t = traits => Object.fromEntries(traits.split(', ').map(e => [e, e]))
 
 
 export const sets = [
   {
     name: 'Entrance',
-    traits: {entrance},
+    traits: t(`entrance`),
     entities: [
-      {name: 'Jo Schwartz', traits: {human, mechanic}},
-      {name: 'Lita Maroon', traits: {human, administrator}},
-      {name: 'Jaque Salls', traits: {human, hunter, rifle}},
+      {name: 'Jo Schwartz', traits: t(`human, mechanic`)},
+      {name: 'Lita Maroon', traits: t(`human, administrator`)},
+      {name: 'Jaque Salls', traits: t(`human, hunter, rifle`)},
     ]
   },
   {
     name: 'administration',
-    traits: {},
+    traits: t(``),
     entities: []
   },
   {
     name: 'velociraptor enclosure',
-    traits: {enclosure},
+    traits: t(`enclosure`),
     entities: [
-      {name: 'A-A-A', traits: {dinosaur}},
+      {name: 'A-A-A', traits: t(`dinosaur`)},
     ]
   },
   {
     name: 'riding a T-rex',
-    traits: {grappling},
+    traits: t(`grappling`),
     entities: [
-      {name: 'HRAH', traits: {dinosaur}},
+      {name: 'HRAH', traits: t(`dinosaur`)},
     ]
   },
 ]

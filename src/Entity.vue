@@ -1,4 +1,6 @@
 <script setup>
+  import TraitList from './TraitList.vue'
+
   defineProps(['name', 'traits'])
 </script>
 
@@ -6,9 +8,7 @@
 <template>
   <div>
     <h1> {{ name }} </h1>
-    <span v-for="trait in traits">
-      {{ trait }} &nbsp
-    </span>
+    <Traits :traits="traits"></Traits>
   </div>
 </template>
 
@@ -17,8 +17,4 @@
 div {
 
 }
-
-ul {}
-
-span {}
 </style>
