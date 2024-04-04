@@ -1,18 +1,28 @@
 <script setup>
+  import { ref } from 'vue'
+
   import Entity from './Entity.vue'
   import { sets, actions } from './data.js'
+
+  const selected = ref()
 </script>
 
 
 <template>
-  <!-- TODO `Set` -->
-  <div v-for="{name, traits, entities} in sets">
+  <div class="set"
+    v-for="{name, traits, entities} in sets"
+    :name="name" :traits="traits"
+  >
     <Entity
-      v-for="{name, traits} in entities"
-      :name="name"
-      :traits="traits"
+      v-for="entity in entities"
+      :name="entity.name"
+      :traits="entity.traits"
+      @click="selected = entity"
     ></Entity>
   </div>
+
+  <!-- TODO: action bar -->
+  <Entity v-if="selected" :name="selected.name" :traits="selected.traits"></Entity>
 </template>
 
 
