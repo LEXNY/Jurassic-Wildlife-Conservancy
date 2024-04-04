@@ -15,6 +15,8 @@
 
 <style scoped>
 div {
-
+  background-color: #333333;
+  margin: 5px;
+  padding: 10px;
 }
 </style>
