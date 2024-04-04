@@ -6,6 +6,7 @@
 
   import { sets, actions } from './data.js'
 
+  // TODO: change this into `const action = ({subject: null, verb: null, object: null})`
   const selected = reactive({})
 </script>
 
