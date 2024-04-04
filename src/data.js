@@ -13,7 +13,7 @@ export const sets = [
   },
   {
     name: 'administration',
-    traits: t(''),
+    traits: t('administration'),
     entities: []
   },
   {

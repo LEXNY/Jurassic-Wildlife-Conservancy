@@ -7,7 +7,7 @@
 
 
 <template>
-  <div>
+  <div class="set">
     <h1> {{ name }} </h1>
     <TraitList :traits="traits"></TraitList>
     <div class="flex-grid">
@@ -24,6 +24,13 @@
 
 
 <style scoped>
+.set {
+  margin-bottom: 10px;
+  margin-right: 10px;
+  padding: 5px;
+  background-color: black;
+}
+
 .flex-grid {
   display: flex;
   flex-wrap: wrap;
