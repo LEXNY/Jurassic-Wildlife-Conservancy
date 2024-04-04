@@ -1,7 +1,9 @@
 <script setup>
   import { ref } from 'vue'
 
+  import Set from './Set.vue'
   import Entity from './Entity.vue'
+
   import { sets, actions } from './data.js'
 
   const selected = ref()
@@ -9,17 +11,10 @@
 
 
 <template>
-  <div class="set"
+  <Set
     v-for="{name, traits, entities} in sets"
-    :name="name" :traits="traits"
-  >
-    <Entity
-      v-for="entity in entities"
-      :name="entity.name"
-      :traits="entity.traits"
-      @click="selected = entity"
-    ></Entity>
-  </div>
+    :name="name" :traits="traits" :entities="entities" :selected="selected"
+  ></Set>
 
   <!-- TODO: action bar -->
   <Entity v-if="selected" :name="selected.name" :traits="selected.traits"></Entity>
