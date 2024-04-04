@@ -14,7 +14,7 @@
       v-for="entity in entities"
       :name="entity.name"
       :traits="entity.traits"
-      @click="console.log('AAAAAAAAA'); console.log(selected); selected = entity; console.log(selected);"
+      @click="selected.value = entity"
     ></Entity>
   </div>
 </template>

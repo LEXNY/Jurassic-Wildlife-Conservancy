@@ -1,12 +1,12 @@
 <script setup>
-  import { ref } from 'vue'
+  import { reactive } from 'vue'
 
   import Set from './Set.vue'
   import Entity from './Entity.vue'
 
   import { sets, actions } from './data.js'
 
-  const selected = ref()
+  const selected = reactive({})
 </script>
 
 
@@ -17,7 +17,11 @@
   ></Set>
 
   <!-- TODO: action bar -->
-  <Entity v-if="selected" :name="selected.name" :traits="selected.traits"></Entity>
+  <Entity
+    v-if="selected.value"
+    :name="selected.value.name"
+    :traits="selected.value.traits"
+  ></Entity>
 </template>
 
 
