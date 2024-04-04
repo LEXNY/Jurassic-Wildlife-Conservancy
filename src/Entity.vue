@@ -8,7 +8,7 @@
 <template>
   <div>
     <h1> {{ name }} </h1>
-    <Traits :traits="traits"></Traits>
+    <TraitList :traits="traits"></TraitList>
   </div>
 </template>
 

@@ -5,13 +5,15 @@
 
 <template>
   <span v-for="trait in traits">
-    {{ trait }} &nbsp
+    {{ trait }}
   </span>
 </template>
 
 
 <style>
   span {
-    background-color: red;
+    background-color: #440000;
+    margin-right: 10px;
+    padding: 1px;
   }
 </style>
