@@ -17,6 +17,11 @@ export const sets = [
   }
 ]
 
+// TODO:
+//   recon
+//   inspire distractor
+//   invent distractor
+
 // all are assumed to refute "dead"
 export const actions =  {
   distract: {
