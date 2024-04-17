@@ -1,46 +1,41 @@
 export const sets = [
   {
     "name": "Nesting Grounds",
-    "traits": ["dense", "hidden", "guarded"],
+    "traits": ["dense"],
     "entities": [
-      {"name": "Mother Velociraptor", "traits": ["dinosaur", "aggressive", "protective", "alert"]},
-      {"name": "Rare Dinosaur Egg", "traits": ["egg", "fragile", "valuable"]}
+      {"name": "Mother Raptor", "traits": ["dinosaur", "protective"]},
+      {"name": "Dinosaur Egg", "traits": ["egg", "fragile"]}
     ]
   },
   {
     "name": "Research Lab",
-    "traits": ["secure", "high-tech", "staffed"],
+    "traits": ["secure"],
     "entities": [
-      {"name": "Dr. Jane", "traits": ["human", "smart", "resourceful", "cautious"]},
-      {"name": "Engineer Ellie", "traits": ["human", "inventive", "mechanical", "quick"]}
+      {"name": "Doctor Dale", "traits": ["human", "cautious"]},
+      {"name": "Engineer Ellie", "traits": ["human", "inventive"]}
     ]
   }
 ]
 
-// TODO:
-//   recon
-//   inspire distractor
-//   invent distractor
-
-// all are assumed to refute "dead"
-export const actions =  {
+export const actions = {
   distract: {
-    assert: ["inventive"],
-    apply: ["distracted"],
-    repeal: ["alert"]
+    assert: "inventive",
+    refute: "dead",
+    apply:  "distracted",
   },
   secure: {
-    assert: ["smart", "resourceful"],
-    apply: ["secured"],
-    repeal: ["fragile"]
-  },
-  deliver: {
-    assertTarget: ["secured"],
-    apply: ["delivered"],
+    assert: "cautious",
+    refute: "dead",
+    apply:  "secured",
   },
   slash: {
-    assert: ["dinosaur"],
-    refute: ["distracted"],
-    apply: ["dead"],
+    assert: "dinosaur",
+    refute: "distracted",
+    apply:  "dead",
   },
 }
+
+export const possible = ({subject: {traits}, action: {assert, refute}}) =>
+  !traits.find(t => t===refute) && traits.find(t => t===assert)
+
+export const perform = ()=>{} //TODO

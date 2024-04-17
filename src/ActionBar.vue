@@ -1,30 +1,30 @@
 <script setup>
-  import TraitList from './TraitList.vue'
   import Entity from './Entity.vue'
 
-  defineProps(['name', 'traits', 'entities', 'actionSelector'])
+  defineProps(['entity', 'actions', 'actionSelector'])
+
+// TODO: only show applicable actions
 </script>
 
 
 <template>
-  <div class="set">
-    <h1> {{ name }} </h1>
-    <TraitList :traits="traits"></TraitList>
+  <div class="action">
     <div class="flex-grid">
-      <Entity
-        v-for="entity in entities"
-        :name="entity.name"
-        :traits="entity.traits"
-        @click="actionSelector.next(entity)"
+      <Entity :entity="entity></Entity>
+      <div
+        v-for="name in Object.keys(actions)"
+        @click="actionSelector.next(actions[name])"
         class="col"
-      ></Entity>
+      >
+        {{name}}
+      </div>
     </div>
   </div>
 </template>
 
 
 <style scoped>
-.set {
+.action {
   margin-bottom: 10px;
   margin-right: 10px;
   padding: 5px;
