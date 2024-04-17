@@ -1,18 +1,26 @@
 <script setup>
+  import { computed } from 'vue'
+
   import Entity from './Entity.vue'
 
-  defineProps(['entity', 'actions', 'actionSelector'])
+  import { possible, actions } from './data.js'
 
-// TODO: only show applicable actions
+  const { entity } = defineProps(['entity', 'actionSelector'])
+
+  const possibleActions = computed(() =>
+    Object.keys(actions)
+      .filter(key => possible({subject: entity, action: actions[key]}))
+  )
 </script>
 
 
 <template>
   <div class="action">
     <div class="flex-grid">
-      <Entity :entity="entity></Entity>
+      <div @click="actionSelector.next()">back</div>
+      <Entity :name="entity.name" :traits="entity.traits"></Entity>
       <div
-        v-for="name in Object.keys(actions)"
+        v-for="name in possibleActions"
         @click="actionSelector.next(actions[name])"
         class="col"
       >
